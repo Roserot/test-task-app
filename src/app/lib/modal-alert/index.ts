@@ -1,4 +1,4 @@
-import './ModalAlert.css';
+import './ModalAlert.scss';
 
 export default class ModalAlert {
     type:string;
