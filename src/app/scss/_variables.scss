@@ -1,6 +1,11 @@
 $font-fegular: PT_Sans-R;
 $font-bold: PT_Sans-B;
 
+$spacing: 30px;
+
+$header-min-height: 110px;
+$content-min-height: calc(100vh - #{$header-min-height} - #{2 * $spacing});
+
 $color-base: #172649;
 $color-orange: #fcab02;
 $color-red: #f65038;

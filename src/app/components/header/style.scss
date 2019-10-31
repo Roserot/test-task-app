@@ -1,0 +1,11 @@
+@import '@variables';
+
+.header {
+  margin: $spacing 0;
+  padding: $spacing;
+  min-height: $header-min-height;
+}
+
+.header__name {
+  font-family: $font-bold;
+}
