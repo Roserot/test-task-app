@@ -1,11 +1,13 @@
-import axios from 'axios';
-import { baseURL, getterActions} from '@configs/api'
-
-const getter = axios.create({
-  baseURL
-});
+import { baseURL} from '@configs/api'
 
 export default (action:string):Promise<any> => {
-  return getter.get(action)
-    .catch(err => console.error(`Can't resolve action ${action}`,err));
+  const url = `${baseURL}${action}`;
+  const options = {
+    method: 'GET'
+  }
+  return fetch(url, options)
+    .then(response => response.json())
+    .catch(error => {
+      throw new Error(error)
+    });
 };

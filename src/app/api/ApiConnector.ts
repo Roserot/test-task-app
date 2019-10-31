@@ -3,12 +3,18 @@ import { getterActions } from '@configs/api'
 
 export class ApiConnector {
   static login = async () => {
-    const response = await getter(getterActions.GET_USER);
-    const {data, statusText} = response;
-
-    return {
-      data,
-      statusText
+    try {
+      const data = await getter(getterActions.GET_USER);
+      return {
+        data,
+        status: true
+      }
+    } catch (e) {
+      console.error(e);
+      return {
+        data: [],
+        statusText: false
+      }
     }
   }
 }
