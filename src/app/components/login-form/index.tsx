@@ -47,7 +47,7 @@ class LoginForm extends React.Component {
         <Paper>
           <div className='loginForm__handler'>
             <Typography variant='h5'>
-              {this.state.loading ? 'Loading...' : 'login'}
+              {this.state.loading ? 'Loading...' : 'Registration'}
             </Typography>
             {this.renderInputs()}
             {this.renderButtons()}
@@ -86,24 +86,29 @@ class LoginForm extends React.Component {
       return;
     }
 
+    if(this.state.loading)
+      return;
+
     (async () => {
       this.setState({
         loading: true
       });
 
       const response = await ApiConnector.login();
-      if(response.statusText !== 'OK') {
-        AlertUtils.error('Failed to login');
-        this.setState({
-          loading: false
-        });
-        return;
-      } else {
-        response.data.forEach(user => {
+
+      if(response.status) {
+        for(let i = 0; i < response.data.length; i++ ) {
           const {userName, password} = this.state.inputs;
-          if(user.name === userName && user.password === password)
-            this.loged(user);
-        })
+          if(response.data[i].name === userName && response.data[i].password === password) {
+            this.loged(response.data[i]);
+            return;
+          }
+        }
+        AlertUtils.warning('Wrong data');
+        this.stopLoading();
+      } else {
+        AlertUtils.error('Failed to login');
+        this.stopLoading();
       }
     })()
   }
@@ -131,6 +136,12 @@ class LoginForm extends React.Component {
       this.setState({
         inputs: inputs,
       })
+  }
+
+  stopLoading() {
+    this.setState({
+      loading: false
+    });
   }
 
   loged = (user) => {

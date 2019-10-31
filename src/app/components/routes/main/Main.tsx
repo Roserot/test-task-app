@@ -5,8 +5,12 @@ import routes from '@configs/routes'
 
 import { LocalStorage } from '@app/utils/LocalStorage'
 
-export default () => !!LocalStorage.getUser()
-  ? <h1>Main</h1>
+import Raw from './Raw';
+
+const user = LocalStorage.getUser();
+
+export default () => !!user
+  ? <Raw name={user.name}/>
   : <Redirect to={routes.LOGIN.path}/>
 
 
