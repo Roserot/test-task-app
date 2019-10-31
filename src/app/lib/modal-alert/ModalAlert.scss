@@ -22,6 +22,11 @@
         border-color: green;
         background: lighten(green, 20%);
     }
+
+    &.alert-success {
+        border-color: red;
+        background: lighten(red, 20%);
+    }
 }
 
 #modal-alert.in {

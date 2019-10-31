@@ -1,10 +1,18 @@
 import ModalAlert from '@lib/modal-alert'
 
 export class AlertUtils {
-  static notValidLogin = () => {
+  static warning = (message:string) => {
     new ModalAlert({
       type: 'warning',
-      message: 'Invalid input fields'
+      message
     })
   }
+
+  static error = (message:string) => {
+    new ModalAlert({
+      type: 'error',
+      message
+    })
+  }
+
 }
