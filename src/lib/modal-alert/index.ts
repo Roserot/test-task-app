@@ -1,6 +1,5 @@
 import './ModalAlert.css';
 
-
 export default class ModalAlert {
     type:string;
     message:string;
@@ -19,12 +18,14 @@ export default class ModalAlert {
         this.message = message;
         this.modalAlert = null;
         this.dismissAfter = props.dismissAfter || 3500;
+
+        this.show();
     }
 
     show() {
         if(ModalAlert.checkIsExistence())
             return;
-
+        
         // @ts-ignore
         document.querySelector('body').insertAdjacentHTML('afterbegin', this.makeHtml());
         this.modalAlert =  document.querySelector('#modal-alert');

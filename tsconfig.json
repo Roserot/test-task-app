@@ -23,9 +23,10 @@
       "@root/*": ["./*"],
 
       "@app/*": ["app/*"],
-      "@lib/*": ["lib/*"],
+      "@lib/*": ["app/lib/*"],
       "@configs/*": ["configs/*"],
-      "@components/*": ["components/*"],
+      "@components/*": ["app/components/*"],
+      "@routes": ["app/components/routes"],
 
       "@variables": ["app/scss/_variables.scss"],
       "@mixins": ["app/scss/_mixins.scss"]

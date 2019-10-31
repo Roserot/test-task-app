@@ -32,7 +32,7 @@ module.exports = {
     plugins: [
       new TSConfigPathsPlugin({
         baseUrl: 'src',
-        configFile: tsconfig,
+        configFile: 'tsconfig.json',
       }),
     ]
   },
