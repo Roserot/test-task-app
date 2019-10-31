@@ -1,16 +1,20 @@
 import * as React from 'react';
+import {Redirect} from 'react-router-dom';
 
+import routes from '@configs/routes'
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 
 import FormInput from './parts/form-input'
 import LoginBtn from './parts/login-btn'
-
-
-import './style.scss';
 import StyledButton from '@components/styled-button'
 import { AlertUtils } from '@app/utils/AlertUtils'
 import { ApiConnector } from '@app/api/ApiConnector'
+import { LocalStorage } from '@app/utils/LocalStorage'
+
+
+import './style.scss';
+
 
 type Props = {
   toggleForm: (form:string) => void
@@ -22,6 +26,7 @@ type State = {
     password:string;
   }
   loading: boolean;
+  redirect: boolean
 }
 
 class LoginForm extends React.Component<Props> {
@@ -41,13 +46,13 @@ class LoginForm extends React.Component<Props> {
   }
 
   render() {
-    console.log(this.state);
     return (
       <div className='loginForm'>
+        {this.redirect()}
         <Paper>
           <div className='loginForm__handler'>
             <Typography variant='h5'>
-              {this.state.loading ? 'Login' : 'Loading...'}
+              {this.state.loading ? 'Loading...' : 'login'}
             </Typography>
             {this.renderInputs()}
             {this.renderButtons()}
@@ -102,11 +107,15 @@ class LoginForm extends React.Component<Props> {
         response.data.forEach(user => {
           const {userName, password} = this.state.inputs;
           if(user.name === userName && user.password === password)
-            LoginForm.loged();
+            this.loged(user);
         })
       }
     })()
   }
+
+  redirect = () => this.state.redirect
+    ? <Redirect to={routes.MAIN.path}/>
+    : null;
 
   isInputsValid = ():boolean => {
     const stateCopy = Object.assign({}, this.state);
@@ -129,8 +138,12 @@ class LoginForm extends React.Component<Props> {
       })
   }
 
-  private static loged = () => {
-    console.log('loged')
+  loged = (user) => {
+    LocalStorage.saveLogIn(user);
+
+    this.setState({
+      redirect: true
+    })
   }
 
   private static getInitialState = ():State => ({
@@ -138,7 +151,8 @@ class LoginForm extends React.Component<Props> {
       userName: '',
       password:'',
     },
-    loading:false
+    loading:false,
+    redirect:false
     });
 }
 

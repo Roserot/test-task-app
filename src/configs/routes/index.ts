@@ -1,10 +1,8 @@
-import {routes as routesPseudos} from '../pseudos/routes';
-
 export const routes = {
-  [routesPseudos.MAIN]: {
+  MAIN: {
     path: '/main'
   },
-  [routesPseudos.LOGIN]: {
+  LOGIN: {
     path: '/login'
   }
 };

@@ -1,5 +1,4 @@
 import config from '@configs/routes';
-import {routes as routesPseudos} from '@configs/pseudos/routes';
 
 import { Main } from './main';
 import { Login } from './login';
@@ -15,11 +14,11 @@ export const routes:Array<Route> = [
   {
     exact: true,
     component: Main,
-    path: config[routesPseudos.MAIN].path,
+    path: config.MAIN.path,
   },
   {
     component: Login,
-    path: config[routesPseudos.LOGIN].path,
+    path: config.LOGIN.path,
   },
 ];
 

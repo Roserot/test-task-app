@@ -1,10 +1,12 @@
 import * as React from 'react';
-import { Link, Route, BrowserRouter } from 'react-router-dom';
+import { Link, Route, Router as BrowserRouter } from 'react-router-dom';
+
+import history from '@lib/history';
 
 import { routes } from '@routes';
 
 export const Router = () =>
-  <BrowserRouter>
+  <BrowserRouter history={history}>
     <Routes />
   </BrowserRouter>;
 
