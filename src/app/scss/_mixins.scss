@@ -1,0 +1,115 @@
+@mixin bgImg($assetsImgPath, $img, $color: transparent) {
+  background: $color url(($assetsImgPath+$img)) no-repeat;
+}
+
+@mixin font-face($family, $path, $weight: normal, $style: normal) {
+  @font-face {
+    font-family: $family;
+    src: url('#{$path}.ttf') format('truetype');
+    font-weight: $weight;
+    font-style: $style;
+  }
+}
+
+@mixin placeholder($color) {
+  &::-webkit-input-placeholder {
+    color: $color;
+  }
+  &::-moz-placeholder {
+    color: $color;
+  }
+  &:-ms-input-placeholder {
+    color: $color;
+  }
+  &:-moz-placeholder {
+    color: $color;
+  }
+}
+
+
+@mixin media($width) {
+  @media screen and (max-width: $width+'px') {
+    @content;
+  }
+}
+
+@mixin xxl-block() {
+  @include media(1400){
+    @content;
+  }
+}
+
+@mixin xl-block() {
+  @include media(1200){
+    @content;
+  }
+}
+
+@mixin lg-block() {
+  @include media(992){
+    @content;
+  }
+}
+
+@mixin md-block() {
+  @include media(767){
+    @content;
+  }
+}
+
+@mixin xmd-block() {
+  @include media(676){
+    @content;
+  }
+}
+
+@mixin sm-block() {
+  @include media(576){
+    @content;
+  }
+}
+
+@mixin xs-block() {
+  @include media(480){
+    @content;
+  }
+}
+
+@mixin xxs-block() {
+  @include media(400){
+    @content;
+  }
+}
+
+@mixin dn($width) {
+  @media screen and (max-width: $width+'px') {
+    display: none;
+  }
+}
+@mixin dn-xxl() {
+  @include dn(1400)
+}
+
+@mixin dn-xl() {
+  @include dn(1200)
+}
+
+@mixin dn-lg() {
+  @include dn(992)
+}
+
+@mixin dn-md() {
+  @include dn(768)
+}
+
+@mixin dn-sm() {
+  @include dn(576)
+}
+
+@mixin dn-xs() {
+  @include dn(480)
+}
+
+@mixin dn-xxs() {
+  @include dn(400)
+}

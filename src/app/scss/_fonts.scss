@@ -1,0 +1,5 @@
+@import '_mixins.scss';
+
+@include font-face(PT_Sans-R, '../../../assets/fonts/PT_Sans/PT_Sans-Web-Regular');
+@include font-face(PT_Sans-B, '../../../assets/fonts/PT_Sans/PT_Sans-Web-Bold');
+

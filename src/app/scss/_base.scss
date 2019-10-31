@@ -1,0 +1,14 @@
+@import '_variables';
+
+html {
+  font-size: 20px;
+  font-family: $font-fegular;
+}
+
+body {
+  color: $color-base;
+}
+
+a, a:hover {
+  color: $color-base;
+}
