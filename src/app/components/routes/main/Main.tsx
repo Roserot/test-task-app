@@ -1,4 +1,12 @@
 import * as React from 'react';
+import {Redirect} from 'react-router-dom';
 
-export default () =>
-  <h1>Main</h1>;
+import routes from '@configs/routes'
+
+import { LocalStorage } from '@app/utils/LocalStorage'
+
+export default () => !!LocalStorage.getUser()
+  ? <h1>Main</h1>
+  : <Redirect to={routes.LOGIN.path}/>
+
+

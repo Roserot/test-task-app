@@ -1,12 +1,12 @@
 import * as React from 'react';
+import {Redirect} from 'react-router-dom';
+
+import routes from '@configs/routes'
 
 import LoginForm  from '@components/login-form';
+import { LocalStorage } from '@app/utils/LocalStorage'
 
-export default () => {
-    const [form, toggleForm] = React.useState('login');
-
-    return form === 'login'
-      ?  <LoginForm toggleForm={toggleForm}/>
-      :  null;
-}
+export default () => !!LocalStorage.getUser()
+  ?  <Redirect to={routes.MAIN.path}/>
+  :  <LoginForm/>;
 

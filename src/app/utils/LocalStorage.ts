@@ -1,10 +1,13 @@
-import store from 'store';
-
 export class LocalStorage {
   public static saveLogIn = (user) => {
-    store.set('logedIn', user);
+    window.localStorage.setItem('logedIn', JSON.stringify(user));
   }
 
-  public static getUser = () =>
-    store.get('logedIn');
+  public static getUser = () => {
+    const retrievedObject  = window.localStorage.getItem('logedIn');
+
+    return !!retrievedObject
+      ? JSON.parse(retrievedObject)
+      : null;
+  }
 }

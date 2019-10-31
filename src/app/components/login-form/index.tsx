@@ -15,11 +15,6 @@ import { LocalStorage } from '@app/utils/LocalStorage'
 
 import './style.scss';
 
-
-type Props = {
-  toggleForm: (form:string) => void
-}
-
 type State = {
   inputs: {
     userName:string;
@@ -29,7 +24,7 @@ type State = {
   redirect: boolean
 }
 
-class LoginForm extends React.Component<Props> {
+class LoginForm extends React.Component {
   readonly state:State = LoginForm.getInitialState()
 
   componentDidMount() {
