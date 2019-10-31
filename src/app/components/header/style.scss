@@ -2,8 +2,11 @@
 
 .header {
   margin: $spacing 0;
-  padding: $spacing;
   min-height: $header-min-height;
+}
+
+.header__inner {
+  padding: $spacing;
 }
 
 .header__name {

@@ -9,9 +9,9 @@ type Props = {
 }
 
 export const Header = ({name}:Props) =>
-  <header>
+  <header className='header'>
     <Paper>
-      <div className="header">
+      <div className="header__inner">
         <Typography variant='h4'>
           <span className='header__name'>{name}</span>, welcome to our site!
         </Typography>
