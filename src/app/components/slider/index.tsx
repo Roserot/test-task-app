@@ -12,7 +12,7 @@ const slides = images.map((image, idx) =>
   <input type='radio' name='radio-btn' id={`img-${idx}`} defaultChecked={idx === 0}/>
   <li className='slide-container'>
     <div className='slide'>
-      <img src={image}/>
+      <img className={'slide__img'} src={image}/>
     </div>
     <div className='nav'>
       <label htmlFor={`img-${ (idx - 1) < 0 ? images.length : idx - 1}`} className='prev'>&#x2039;</label>

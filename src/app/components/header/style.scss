@@ -1,12 +1,18 @@
 @import '@variables';
+@import "@mixins";
 
 .header {
   margin: $spacing 0;
-  min-height: $header-min-height;
+  h4 {
+    @include md-block() {
+      font-size: 1.6em;
+    }
+  }
 }
 
 .header__inner {
   padding: $spacing;
+  min-height: $header-min-height;
 }
 
 .header__name {

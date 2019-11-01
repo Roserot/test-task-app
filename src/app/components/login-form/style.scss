@@ -1,9 +1,13 @@
 @import '@variables';
+@import "@mixins";
 
 .loginForm {
   width: 400px;
   margin: 60px auto 0;
   text-align: center;
+  @include xxs-block() {
+    width: 90%;
+  }
 }
 
 .loginForm__handler {

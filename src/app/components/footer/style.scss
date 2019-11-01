@@ -1,8 +1,10 @@
 @import '@variables';
+@import '@mixins';
 
 .footer {
   min-height: $header-min-height;
   margin: $spacing 0;
-  padding: $spacing;
+  padding: 15px;
   text-align: right;
+  @include flex-center(flex-end, center)
 }

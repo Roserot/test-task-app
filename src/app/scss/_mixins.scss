@@ -11,10 +11,10 @@
   }
 }
 
-@mixin flex-center {
+@mixin flex-center($j, $a) {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: $j;
+  align-items: $a;
 }
 
 @mixin placeholder($color) {

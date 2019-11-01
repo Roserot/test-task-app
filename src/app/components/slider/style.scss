@@ -17,7 +17,7 @@
 .slide {
   top: 0;
   opacity: 0;
-  width: 600px;
+  width: 100%;
   height: 420px;
   display: block;
   position: absolute;
@@ -27,13 +27,13 @@
   transition: all .7s ease-in-out;
 }
 
-.slide img {
+.slide__img {
   width: 100%;
   height: 100%;
 }
 
 .nav label {
-  width: 200px;
+  width: 10%;
   height: 100%;
   display: none;
   position: absolute;
@@ -45,7 +45,7 @@
   transition: opacity .2s;
 
   color: #FFF;
-  font-size: 156pt;
+  font-size: 60px;
   text-align: center;
   line-height: 380px;
   font-family: "Varela Round", sans-serif;

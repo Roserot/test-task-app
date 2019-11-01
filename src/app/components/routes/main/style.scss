@@ -4,6 +4,5 @@
 .main {
   padding: $spacing;
   min-height: $content-min-height;
-  @include flex-center;
-
+  @include flex-center(center, center)
 }
