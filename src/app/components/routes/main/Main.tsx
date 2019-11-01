@@ -1,16 +1,38 @@
 import * as React from 'react';
 import {Redirect} from 'react-router-dom';
+import Paper from '@material-ui/core/Paper';
+
+import { LocalStorage } from '@app/utils/LocalStorage';
 
 import routes from '@configs/routes'
 
-import { LocalStorage } from '@app/utils/LocalStorage'
+import {Header} from '@components/header';
+import {Footer} from '@components/footer';
+import {Slider} from '@components/slider';
 
-import Raw from './Raw';
+import './style.scss';
 
-const user = LocalStorage.getUser();
+const Raw = () =>  {
+  const user = LocalStorage.getUser();
 
-export default () => !!user
-  ? <Raw name={user.name}/>
-  : <Redirect to={routes.LOGIN.path}/>
+  return user
+    ? (
+      <>
+        <Header name={user.name}/>
+        <Body/>
+        <Footer/>
+      </>
+    )
+    : <Redirect to={routes.LOGIN.path}/>
+};
+
+const Body = () => (
+  <Paper>
+    <main className='main'>
+      <Slider/>
+    </main>
+  </Paper>
+)
 
 
+export default Raw;

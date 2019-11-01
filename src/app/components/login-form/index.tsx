@@ -36,12 +36,11 @@ class LoginForm extends React.Component {
   }
 
   listener = (evt) => {
-    if(evt.keyCode === 13) {
-      console.log('list');
+    if (evt.keyCode === 13)
       this.handleLogin();
-    }
-
   }
+
+
 
   render() {
     return (
@@ -98,10 +97,10 @@ class LoginForm extends React.Component {
       });
 
       const response = await ApiConnector.login();
+      const {userName, password} = this.state.inputs;
 
       if(response.status) {
         for(let i = 0; i < response.data.length; i++ ) {
-          const {userName, password} = this.state.inputs;
           if(response.data[i].name === userName && response.data[i].password === password) {
             this.loged(response.data[i]);
             return;

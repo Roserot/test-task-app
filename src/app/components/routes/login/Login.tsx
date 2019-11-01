@@ -6,7 +6,6 @@ import routes from '@configs/routes'
 
 import LoginForm  from '@components/login-form';
 
-
 export default () => !!LocalStorage.getUser()
   ?  <Redirect to={routes.MAIN.path}/>
   :  <LoginForm/>;
