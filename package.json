@@ -1,6 +1,6 @@
 {
   "name": "test-task-app",
-  "author": "",
+  "author": "Alex Bryukhanov",
   "version": "1.0.0",
   "description": "",
   "main": "webpack.config.js",
