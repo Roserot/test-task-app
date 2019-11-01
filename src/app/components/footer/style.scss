@@ -1,0 +1,8 @@
+@import '@variables';
+
+.footer {
+  min-height: $header-min-height;
+  margin: $spacing 0;
+  padding: $spacing;
+  text-align: right;
+}

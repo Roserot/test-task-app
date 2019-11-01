@@ -36,8 +36,11 @@ class LoginForm extends React.Component {
   }
 
   listener = (evt) => {
-    if(evt.keyCode === 13)
+    if(evt.keyCode === 13) {
+      console.log('list');
       this.handleLogin();
+    }
+
   }
 
   render() {
@@ -145,11 +148,13 @@ class LoginForm extends React.Component {
   }
 
   loged = (user) => {
-    LocalStorage.saveLogIn(user);
+    LocalStorage.saveUser(user);
+    setTimeout(() => {
+      this.setState({
+        redirect: true
+      })
+    }, 300)
 
-    this.setState({
-      redirect: true
-    })
   }
 
   private static getInitialState = ():State => ({

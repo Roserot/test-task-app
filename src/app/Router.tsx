@@ -1,20 +1,15 @@
 import * as React from 'react';
-import { Link, Route, Router as BrowserRouter } from 'react-router-dom';
+import { Route, Switch, BrowserRouter } from 'react-router-dom';
 
-import history from '@lib/history';
+import {Main} from '@components/routes/main'
+import {Login} from '@components/routes/login'
 
-import { routes } from '@routes';
+import { routes } from '@configs/routes';
 
 export const Router = () =>
-  <BrowserRouter history={history}>
-    <Routes />
+  <BrowserRouter>
+    <Switch>
+      <Route exact path={routes.MAIN.path} component={Main} />;
+      <Route path={routes.LOGIN.path} component={Login} />;
+    </Switch>
   </BrowserRouter>;
-
-const Routes = () => {
-  const map = ({ path, exact = false, component }) =>
-    <Route key={path} path={path} exact={exact} component={component} />;
-
-  const items = routes.map(map);
-
-  return <>{items}</>;
-};

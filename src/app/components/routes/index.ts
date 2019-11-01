@@ -17,6 +17,7 @@ export const routes:Array<Route> = [
     path: config.MAIN.path,
   },
   {
+    exact: true,
     component: Login,
     path: config.LOGIN.path,
   },

@@ -1,6 +1,10 @@
 export class LocalStorage {
-  public static saveLogIn = (user) => {
+  public static saveUser = (user) => {
     window.localStorage.setItem('logedIn', JSON.stringify(user));
+  }
+
+  public static removeUser = () => {
+    window.localStorage.removeItem('logedIn');
   }
 
   public static getUser = () => {

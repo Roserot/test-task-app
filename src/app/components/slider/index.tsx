@@ -25,7 +25,7 @@ const labels  = images.map((image, idx) => (
       <label key={image + idx} htmlFor={`img-${idx}`} className='nav-dot' id={`img-dot-${idx}`}/>
   ));
 
-const Slider= () => (
+export const Slider= () => (
   <ul className='slides'>
     {slides}
 
@@ -34,5 +34,3 @@ const Slider= () => (
     </li>
   </ul>
 )
-
-export default Slider;

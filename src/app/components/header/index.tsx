@@ -8,7 +8,7 @@ type Props = {
   name: string;
 }
 
-export const Header = ({name}:Props) =>
+export const Header = ({name}:Props) => (
   <header className='header'>
     <Paper>
       <div className="header__inner">
@@ -17,5 +17,6 @@ export const Header = ({name}:Props) =>
         </Typography>
       </div>
     </Paper>
-  </header>;
+  </header>
+);
 

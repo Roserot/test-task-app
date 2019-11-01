@@ -11,6 +11,12 @@
   }
 }
 
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 @mixin placeholder($color) {
   &::-webkit-input-placeholder {
     color: $color;

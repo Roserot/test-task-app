@@ -4,7 +4,7 @@ $font-bold: PT_Sans-B;
 $spacing: 30px;
 
 $header-min-height: 110px;
-$content-min-height: calc(100vh - #{$header-min-height} - #{4 * $spacing}) ;
+$content-min-height: calc(100vh - #{2 * $header-min-height} - #{4 * $spacing}) ;
 
 $color-base: #172649;
 $color-orange: #fcab02;
